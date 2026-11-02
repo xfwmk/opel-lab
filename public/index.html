@@ -5,46 +5,5 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
   <title>𖦏 opel | Lab</title>
-  <style>
-    :root { color-scheme: dark; font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
-    * { box-sizing: border-box; }
-    html { min-height: 100%; background: #080808; }
-    body { min-height: 100vh; margin: 0; color: #eaeaea; background: #080808; isolation: isolate; }
-    body::before {
-      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background: radial-gradient(ellipse 50% 40% at 52% 42%, rgba(130,130,150,.10), transparent 85%);
-      animation: breathe 18s ease-in-out infinite alternate;
-    }
-    @keyframes breathe { from { opacity: .28; } to { opacity: .9; } }
-    .wrap { max-width: 1050px; padding: 42px 28px 100px; margin: 0 auto; }
-    .brand { font-weight: 650; font-size: 23px; letter-spacing: -.05em; }
-    main { margin-top: min(23vh, 180px); }
-    .eyebrow { color: #919191; font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
-    h1 { font-size: clamp(44px, 8vw, 86px); line-height: 1.08; letter-spacing: -.07em; margin: 16px 0; font-weight: 600; }
-    p { max-width: 580px; color: #9c9c9c; font-size: 16px; line-height: 1.7; }
-    .card { margin-top: 45px; padding: 23px 25px; max-width: 600px; background: rgba(18,18,18,.76); border: 1px solid #303030; border-radius: 22px; box-shadow: 0 15px 60px #0005; }
-    .card b { display: block; font-size: 14px; margin-bottom: 7px; }
-    .card p { font-size: 13px; margin: 0; }
-    .meta { display: flex; gap: 10px; align-items: center; margin-top: 19px; color: #979797; font-size: 12px; }
-    .dot { width: 7px; height: 7px; border-radius: 100%; background: #80ab86; box-shadow: 0 0 12px #80ab8655; }
-    a { color: #d7d7d7; text-decoration-color: #666; text-underline-offset: 3px; }
-    a:hover { color: white; }
-    @media (prefers-reduced-motion: reduce) { body::before { animation: none; opacity: .55; } }
-  </style>
 </head>
-<body>
-  <div class="wrap">
-    <header class="brand">𖦏 opel</header>
-    <main>
-      <div class="eyebrow">A space for experiments</div>
-      <h1>Lab.</h1>
-      <p>A quiet corner of the internet for trying things, breaking things, and building something interesting.</p>
-      <section class="card" aria-label="First experiment">
-        <b>Experiment 001 — Ambient light</b>
-        <p>Look closely at the background. The wallpaper stays still; the lighting breathes gently over time.</p>
-        <div class="meta"><span class="dot" aria-hidden="true"></span> Live prototype <span aria-hidden="true">·</span> <a href="/api/health">Test Worker API</a></div>
-      </section>
-    </main>
-  </div>
-</body>
 </html>
