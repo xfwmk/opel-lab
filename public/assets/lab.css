@@ -78,6 +78,7 @@ a:focus-visible { outline: 2px solid #b1d3ff; outline-offset: 4px; }
 }
 .site-link:hover { border-color: #b9b9b9; background: #161616; }
 
+/* Keep the original framed blue hero on the Lab homepage. */
 main { position: relative; z-index: 1; padding: 8px 8px 0; }
 .hero {
   position: relative;
@@ -117,7 +118,7 @@ main { position: relative; z-index: 1; padding: 8px 8px 0; }
   pointer-events: none;
   background: linear-gradient(180deg, rgb(0 0 0 / 12%), transparent 45%, rgb(0 0 0 / 8%));
 }
-.hero-content { max-width: 850px; }
+.hero-content { position: relative; z-index: 1; max-width: 850px; }
 h1 {
   margin: 0;
   font-size: clamp(64px, 9vw, 108px);
@@ -151,46 +152,49 @@ h1 {
   transform: translateY(-2px);
 }
 
+/* Experiments directory: no visible rectangle; the glow fades into the page. */
 .hero-directory {
-  position: relative;
-  isolation: isolate;
-  display: grid;
-  place-items: center;
   min-height: 420px;
-  max-width: 1480px;
-  margin: 0 auto;
   padding: 90px 24px 70px;
-  text-align: center;
-
   overflow: visible;
-  border: none;
+  border: 0;
   border-radius: 0;
-  box-shadow: none;
-
   background: transparent;
+  box-shadow: none;
 }
-
 .hero-directory::before {
   content: "";
   position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 1150px;
   z-index: -1;
-
-  top: -80px;
-  left: -20%;
-  width: 140%;
-  height: 850px;
-
   pointer-events: none;
-
   background: radial-gradient(
-    ellipse 48% 55% at 50% 30%,
-    rgba(80, 135, 205, 0.30) 0%,
-    rgba(42, 85, 150, 0.20) 30%,
-    rgba(18, 42, 80, 0.10) 55%,
-    transparent 85%
+    ellipse 55% 65% at 50% 25%,
+    rgb(99 153 219 / 28%) 0%,
+    rgb(60 111 180 / 20%) 27%,
+    rgb(31 68 119 / 12%) 52%,
+    rgb(13 34 66 / 5%) 74%,
+    transparent 100%
   );
-
-  filter: blur(55px);
+  filter: blur(50px);
+  /* Override the dotted texture and mask inherited from .hero::before. */
+  -webkit-mask-image: none;
+  mask-image: none;
+  opacity: 1;
+}
+.hero-directory::after { content: none; }
+.hero-directory .hero-content { max-width: 760px; }
+.hero-directory h1 {
+  font-size: clamp(52px, 7vw, 92px);
+  letter-spacing: -0.065em;
+}
+.hero-directory p {
+  margin: 18px auto 0;
+  color: #c8d5e4;
+  font-size: clamp(15px, 1.5vw, 18px);
 }
 
 .experiments {
@@ -338,7 +342,23 @@ h2 {
   .site-link { padding: 7px 12px; }
   main { padding: 4px 4px 0; }
   .hero { min-height: 610px; padding: 80px 18px; border-radius: 12px; }
-  .hero-directory { min-height: 340px; padding: 70px 18px; }
+  .hero-directory {
+    min-height: 320px;
+    padding: 72px 18px 56px;
+    border-radius: 0;
+  }
+  .hero-directory::before {
+    top: -75px;
+    height: 900px;
+    background: radial-gradient(
+      ellipse 78% 70% at 50% 24%,
+      rgb(99 153 219 / 29%) 0%,
+      rgb(60 111 180 / 18%) 30%,
+      rgb(31 68 119 / 9%) 58%,
+      transparent 100%
+    );
+    filter: blur(40px);
+  }
   .hero p { max-width: 290px; }
   .experiments { padding-bottom: 70px; }
   .experiments-grid { grid-template-columns: 1fr; }
@@ -348,27 +368,4 @@ h2 {
   html { scroll-behavior: auto; }
   .hero-button, .experiment-card { transition: none; }
   .hero-button:hover, .experiment-card:hover { transform: none; }
-}
-
-.hero-directory .hero-content {
-  max-width: 760px;
-}
-
-.hero-directory h1 {
-  font-size: clamp(52px, 7vw, 92px);
-  letter-spacing: -0.065em;
-}
-
-.hero-directory p {
-  margin: 18px auto 0;
-  color: #c8d5e4;
-  font-size: clamp(15px, 1.5vw, 18px);
-}
-
-@media (max-width: 640px) {
-  .hero-directory {
-    min-height: 320px;
-    padding: 72px 18px 56px;
-    border-radius: 12px;
-  }
 }
