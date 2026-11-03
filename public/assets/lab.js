@@ -1,7 +1,6 @@
 (() => {
   'use strict';
 
-  // Reuse one catalog for the homepage previews and /experiments/ listing.
   async function loadExperiments() {
     const grids = [...document.querySelectorAll('[data-experiment-list]')];
     if (!grids.length) return;
@@ -17,7 +16,6 @@
       return;
     }
 
-    // Every entry represents a real page, for example /experiments/example/.
     const valid = projects.filter(project =>
       project && typeof project.slug === 'string' &&
       /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(project.slug) &&
@@ -101,7 +99,6 @@
     container.append(text);
   }
 
-  // Floating dots from the main opel website: restrained and independent of scrolling.
   function startFloatingDots() {
     const canvas = document.getElementById('floating-dots');
     const context = canvas?.getContext('2d');
