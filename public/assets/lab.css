@@ -78,7 +78,6 @@ a:focus-visible { outline: 2px solid #b1d3ff; outline-offset: 4px; }
 }
 .site-link:hover { border-color: #b9b9b9; background: #161616; }
 
-/* Keep the original framed blue hero on the Lab homepage. */
 main { position: relative; z-index: 1; padding: 8px 8px 0; }
 .hero {
   position: relative;
@@ -152,7 +151,6 @@ h1 {
   transform: translateY(-2px);
 }
 
-/* Experiments directory: no visible rectangle; the glow fades into the page. */
 .hero-directory {
   min-height: 420px;
   padding: 90px 24px 70px;
@@ -180,7 +178,6 @@ h1 {
     transparent 100%
   );
   filter: blur(50px);
-  /* Override the dotted texture and mask inherited from .hero::before. */
   -webkit-mask-image: none;
   mask-image: none;
   opacity: 1;
