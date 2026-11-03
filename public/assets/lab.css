@@ -404,3 +404,11 @@ h2 {
   color: #c8d5e4;
   font-size: clamp(15px, 1.5vw, 18px);
 }
+
+@media (max-width: 640px) {
+  .hero-directory {
+    min-height: 320px;
+    padding: 72px 18px 56px;
+    border-radius: 12px;
+  }
+}
